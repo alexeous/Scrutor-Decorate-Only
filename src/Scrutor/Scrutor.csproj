@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Decoration extensions for Microsoft.Extensions.DependencyInjection.</Description>
+    <Description>Decoration extensions for Microsoft.Extensions.DependencyInjection. This is a stripped-down version of Scrutor (by Kristian Hellang), containing only decoration functionality.</Description>
     <VersionPrefix>6.1.0</VersionPrefix>
-    <Authors>Kristian Hellang</Authors>
+    <Authors>Kristian Hellang, Alexey Bykov</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageId>Scrutor</PackageId>
+    <PackageId>Scrutor.DecorateOnly</PackageId>
     <PackageTags>Dependency;Injection;DI;Decoration</PackageTags>
-    <PackageProjectUrl>https://github.com/khellang/Scrutor</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/alexeous/Scrutor-Decorate-Only</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/khellang/Scrutor</RepositoryUrl>
+    <RepositoryUrl>https://github.com/alexeous/Scrutor-Decorate-Only</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
