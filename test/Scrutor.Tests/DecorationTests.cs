@@ -190,31 +190,11 @@ public class DecorationTests : TestBase
     {
         // See issue: https://github.com/khellang/Scrutor/issues/125
 
-        static bool IsHandlerButNotDecorator(Type type)
-        {
-            var isHandlerDecorator = false;
-
-            var isHandler = type.GetInterfaces().Any(i =>
-                i.IsGenericType &&
-                i.GetGenericTypeDefinition() == typeof(IEventHandler<>)
-            );
-
-            if (isHandler)
-            {
-                isHandlerDecorator = type.GetInterfaces().Any(i => i == typeof(IHandlerDecorator));
-            }
-
-            return isHandler && !isHandlerDecorator;
-        }
-
         var provider = ConfigureProvider(services =>
         {
-            // This should end up with 3 registrations of type IEventHandler<MyEvent>.
-            services.Scan(s =>
-                s.FromAssemblyOf<DecorationTests>()
-                    .AddClasses(c => c.Where(IsHandlerButNotDecorator))
-                    .AsImplementedInterfaces()
-                    .WithTransientLifetime());
+            services.AddTransient<IEventHandler<MyEvent>, MyEvent1Handler>();
+            services.AddTransient<IEventHandler<MyEvent>, MyEvent2Handler>();
+            services.AddTransient<IEventHandler<MyEvent>, MyEvent3Handler>();
 
             // This should not decorate each registration 3 times.
             services.Decorate(typeof(IEventHandler<>), typeof(MyEventHandlerDecorator<>));

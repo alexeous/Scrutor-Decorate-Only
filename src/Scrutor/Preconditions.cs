@@ -40,16 +40,4 @@ internal static class Preconditions
 
         return value;
     }
-
-    public static TEnum IsDefined<TEnum>(TEnum value, [InvokerParameterName] string parameterName) where TEnum : struct, Enum
-    {
-        if (!Enum.IsDefined(typeof(TEnum), value))
-        {
-            NotEmpty(parameterName, nameof(parameterName));
-
-            throw new ArgumentOutOfRangeException(parameterName);
-        }
-
-        return value;
-    }
 }

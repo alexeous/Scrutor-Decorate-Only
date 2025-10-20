@@ -83,12 +83,8 @@ public class OpenGenericDecorationTests : TestBase
     {
         var provider = ConfigureProvider(services =>
         {
-            services.Scan(x =>
-                x.FromAssemblyOf<Message>()
-                    .AddClasses(classes => classes
-                        .AssignableTo(typeof(IMessageProcessor<>)))
-                    .AsImplementedInterfaces()
-                    .WithTransientLifetime());
+            services.AddTransient<IMessageProcessor<Message>, MessageProcessor>();
+            services.AddTransient(typeof(IMessageProcessor<>), typeof(GenericDecorator<>));
 
             services.Decorate(typeof(IMessageProcessor<>), typeof(GenericDecorator<>));
         });
@@ -152,6 +148,9 @@ public class OpenGenericDecorationTests : TestBase
 }
 
 // ReSharper disable UnusedTypeParameter
+
+
+public interface IQueryHandler<TQuery, TResult> { }
 
 public class MyQuery { }
 

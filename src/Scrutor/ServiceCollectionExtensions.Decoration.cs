@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace Microsoft.Extensions.DependencyInjection;
 
 [PublicAPI]
-public static partial class ServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     private const string DecoratedServiceKeySuffix = "+Decorated";
 
