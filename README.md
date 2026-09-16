@@ -2,11 +2,11 @@
 
 This is a stripped-down version of [Scrutor](https://github.com/khellang/Scrutor), containing only decoration functionality.
 
-Package dependencies except `Microsoft.Extensions.DependencyInjection.Abstractions` have been cut down. The only targeted framework version is .NET Standard 2.0.
+Package dependencies except `Microsoft.Extensions.DependencyInjection.Abstractions` have been cut down.
 
 ## Usage
 
-The library adds a family of `Decorate` extension methods to `IServiceCollection` which is used to decorate already registered services.
+The library adds a family of `Decorate` extension methods to `IServiceCollection` used to decorate already registered services.
 
 ### Example
 
