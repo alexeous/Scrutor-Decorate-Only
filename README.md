@@ -2,7 +2,7 @@
 
 This is a stripped-down version of [Scrutor](https://github.com/khellang/Scrutor), containing only decoration functionality.
 
-Package dependencies except `Microsoft.Extensions.DependencyInjection.Abstractions` have been cut down.
+Package dependencies except `Micr0osoft.Extensions.DependencyInjection.Abstractions` and `JetBrains.Annotations` have been cut down.
 
 ## Usage
 
