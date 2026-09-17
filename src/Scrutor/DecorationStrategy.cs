@@ -23,10 +23,10 @@ public abstract class DecorationStrategy
 
     public abstract Func<IServiceProvider, object?, object> CreateDecorator(Type serviceType, string serviceKey);
 
-    internal static DecorationStrategy WithType(Type serviceType, string? serviceKey, Type decoratorType) =>
+    public static DecorationStrategy WithType(Type serviceType, string? serviceKey, Type decoratorType) =>
         Create(serviceType, serviceKey, decoratorType, decoratorFactory: null);
 
-    internal static DecorationStrategy WithFactory(Type serviceType, string? serviceKey, Func<object, IServiceProvider, object> decoratorFactory) =>
+    public static DecorationStrategy WithFactory(Type serviceType, string? serviceKey, Func<object, IServiceProvider, object> decoratorFactory) =>
         Create(serviceType, serviceKey, decoratorType: null, decoratorFactory);
 
     protected static Func<IServiceProvider, object?, object> TypeDecorator(Type serviceType, string serviceKey, Type decoratorType)
