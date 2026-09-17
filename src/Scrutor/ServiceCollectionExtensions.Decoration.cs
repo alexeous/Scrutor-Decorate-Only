@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
     /// <param name="services">The services to add to.</param>
     /// <exception cref="DecorationException">If no service of the type <typeparamref name="TService"/> has been registered.</exception>
     /// <exception cref="ArgumentNullException">If the <paramref name="services"/> argument is <c>null</c>.</exception>
-    public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services)
+    public static IServiceCollection Decorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TDecorator>(this IServiceCollection services)
         where TDecorator : TService
     {
         return services.Decorate<TService, TDecorator>(out _);
@@ -31,7 +31,7 @@ public static class ServiceCollectionExtensions
     /// </summary>
     /// <param name="services">The services to add to.</param>
     /// <exception cref="ArgumentNullException">If the <paramref name="services"/> argument is <c>null</c>.</exception>
-    public static bool TryDecorate<TService, TDecorator>(this IServiceCollection services)
+    public static bool TryDecorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TDecorator>(this IServiceCollection services)
         where TDecorator : TService
     {
         return services.TryDecorate<TService, TDecorator>(out _);
@@ -213,7 +213,7 @@ public static class ServiceCollectionExtensions
     /// <see cref="ServiceProviderExtensions.GetRequiredDecoratedService{TService}(IServiceProvider, DecoratedService{TService})"/>.</param>
     /// <exception cref="DecorationException">If no service of the type <typeparamref name="TService"/> has been registered.</exception>
     /// <exception cref="ArgumentNullException">If the <paramref name="services"/> argument is <c>null</c>.</exception>
-    public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services, out DecoratedService<TService> decorated)
+    public static IServiceCollection Decorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TDecorator>(this IServiceCollection services, out DecoratedService<TService> decorated)
         where TDecorator : TService
     {
         Preconditions.NotNull(services, nameof(services));
@@ -231,7 +231,7 @@ public static class ServiceCollectionExtensions
     /// <param name="decorated">A handle to the service which was decorated. Using this, the service can be retrieved from the service provider via
     /// <see cref="ServiceProviderExtensions.GetRequiredDecoratedService{TService}(IServiceProvider, DecoratedService{TService})"/>.</param>
     /// <exception cref="ArgumentNullException">If the <paramref name="services"/> argument is <c>null</c>.</exception>
-    public static bool TryDecorate<TService, TDecorator>(this IServiceCollection services, [NotNullWhen(true)] out DecoratedService<TService>? decorated)
+    public static bool TryDecorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TDecorator>(this IServiceCollection services, [NotNullWhen(true)] out DecoratedService<TService>? decorated)
         where TDecorator : TService
     {
         Preconditions.NotNull(services, nameof(services));
